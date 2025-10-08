@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} — Fashion Opt{% endblock %}
+
+{% block content %}
+  <article>
+    <h2>{{ product.name }}</h2>
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width:300px;">
+    {% endif %}
+    <p><strong>Цена: {{ product.price }} ₽</strong></p>
+    <p>{{ product.description }}</p>
+
+    <h3>Оставить заявку</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Отправить заявку</button>
+    </form>
+
+    <a href="/catalog/" role="button" class="secondary">Назад в каталог</a>
+  </article>
+{% endblock %}

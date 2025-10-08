@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Главная — Fashion Opt{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Женская одежда оптом</h1>
+  <p>Стиль, качество и выгодные условия для вашего бизнеса</p>
+  <a href="/catalog/" class="btn btn-primary">Смотреть каталог</a>
+</section>
+
+<section class="container py-5">
+  <h2 class="text-center mb-4" style="color:#2ba7a3;">Оставить заявку</h2>
+  <form method="post" action="{% url 'contact_request' %}" class="row g-3">
+    {% csrf_token %}
+    <div class="col-md-6">
+      <input type="text" name="name" class="form-control" placeholder="Ваше имя" required>
+    </div>
+    <div class="col-md-6">
+      <input type="text" name="contact" class="form-control" placeholder="Телефон или email" required>
+    </div>
+    <div class="col-12">
+      <textarea name="message" rows="4" class="form-control" placeholder="Ваше сообщение..."></textarea>
+    </div>
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

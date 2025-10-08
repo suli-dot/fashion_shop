@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Заявка отправлена{% endblock %}
+
+{% block content %}
+  <h2>Спасибо!</h2>
+  <p>Ваша заявка на товар <strong>{{ product.name }}</strong> успешно отправлена.</p>
+  <a href="/catalog/" role="button">Вернуться в каталог</a>
+{% endblock %}
